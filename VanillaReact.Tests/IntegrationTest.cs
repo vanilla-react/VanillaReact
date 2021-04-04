@@ -7,6 +7,7 @@ using System.Net.Http;
 using VanillaReact.Api;
 using VanillaReact.Api.Contexts;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace VanillaReact.Tests
 {
@@ -21,7 +22,13 @@ namespace VanillaReact.Tests
         {
           builder.ConfigureServices(services =>
           {
-            services.RemoveAll(typeof(ApplicationDbContext));
+            var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<ApplicationDbContext>));
+
+            if (descriptor != null)
+            {
+              services.Remove(descriptor);
+            }
+
             services.AddDbContext<ApplicationDbContext>(options =>
             {
               options.UseInMemoryDatabase("TestDb");
