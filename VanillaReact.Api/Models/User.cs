@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api.Models
+namespace VanillaReact.Api.Models
 {
   [Index(nameof(Email), IsUnique = true)]
   public class User

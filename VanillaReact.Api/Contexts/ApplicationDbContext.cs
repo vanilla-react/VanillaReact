@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Api.Models;
+using VanillaReact.Api.Models;
 
-namespace Api.Contexts
+namespace VanillaReact.Api.Contexts
 {
   public class ApplicationDbContext : DbContext
   {

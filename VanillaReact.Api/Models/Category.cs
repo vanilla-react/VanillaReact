@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Api.Models
+namespace VanillaReact.Api.Models
 {
   public class Category
   {

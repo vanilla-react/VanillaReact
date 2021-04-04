@@ -12,8 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
-using Api.Models;
-using Api.Contexts;
+using VanillaReact.Api.Models;
+using VanillaReact.Api.Contexts;
 
 namespace VanillaReact.Api
 {
