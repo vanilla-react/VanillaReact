@@ -14,6 +14,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using VanillaReact.Api.Models;
 using VanillaReact.Api.Contexts;
+using VanillaReact.Api.Services;
 
 namespace VanillaReact.Api
 {
@@ -30,6 +31,7 @@ namespace VanillaReact.Api
     public void ConfigureServices(IServiceCollection services)
     {
 
+      services.AddScoped<UserService>();
       services.AddDbContext<ApplicationDbContext>(
         options => options.UseSqlite("Data Source=/tmp/VanillaReact.db"));
 

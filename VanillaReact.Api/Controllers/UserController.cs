@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using VanillaReact.Api.Contexts;
 using VanillaReact.Api.Models;
+using VanillaReact.Api.Services;
 
 
 namespace VanillaReact.Api.Controllers
@@ -13,16 +14,19 @@ namespace VanillaReact.Api.Controllers
   public class UserController : ControllerBase
   {
     private readonly ApplicationDbContext _ctx;
+    private readonly UserService _userService;
 
-    public UserController(ApplicationDbContext ctx)
+    public UserController(ApplicationDbContext ctx, UserService userService)
     {
       _ctx = ctx;
+      _userService = userService;
     }
 
     [HttpGet]
     public ActionResult<List<User>> Get()
     {
-      return _ctx.Users.ToList();
+      List<User> users = _userService.GetAll();
+      return users;
     }
   }
 }
