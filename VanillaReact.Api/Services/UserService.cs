@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using VanillaReact.Api.Contexts;
 using VanillaReact.Api.Models;
+using VanillaReact.Api.Dtos;
 
 namespace VanillaReact.Api.Services
 {
@@ -19,6 +20,16 @@ namespace VanillaReact.Api.Services
     public List<User> GetAll()
     {
       return this._ctx.Users.ToList<User>();
+    }
+
+    public User Create(CreateUserDto payload)
+    {
+      User user = User.Create(payload.Email, payload.Nickname);
+
+      _ctx.Users.Add(user);
+      _ctx.SaveChanges();
+
+      return user;
     }
   }
 }

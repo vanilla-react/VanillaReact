@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using VanillaReact.Api.Contexts;
 using VanillaReact.Api.Models;
+using VanillaReact.Api.Dtos;
 using VanillaReact.Api.Services;
 
 
@@ -27,6 +28,12 @@ namespace VanillaReact.Api.Controllers
     {
       List<User> users = _userService.GetAll();
       return users;
+    }
+
+    [HttpPost]
+    public ActionResult<User> Store(CreateUserDto payload)
+    {
+      return this._userService.Create(payload);
     }
   }
 }
