@@ -7,7 +7,6 @@ using VanillaReact.Api.Models;
 using VanillaReact.Api.Dtos;
 using VanillaReact.Api.Services;
 
-
 namespace VanillaReact.Api.Controllers
 {
   [ApiController]
