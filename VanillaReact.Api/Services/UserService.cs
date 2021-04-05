@@ -8,28 +8,28 @@ using VanillaReact.Api.Dtos;
 
 namespace VanillaReact.Api.Services
 {
-  public class UserService
-  {
-    private readonly ApplicationDbContext _ctx;
-
-    public UserService(ApplicationDbContext ctx)
+    public class UserService
     {
-      _ctx = ctx;
+        private readonly ApplicationDbContext _ctx;
+
+        public UserService(ApplicationDbContext ctx)
+        {
+            _ctx = ctx;
+        }
+
+        public List<User> GetAll()
+        {
+            return _ctx.Users.ToList<User>();
+        }
+
+        public User Create(CreateUserDto payload)
+        {
+            User user = User.Create(payload.Email, payload.Nickname);
+
+            _ctx.Users.Add(user);
+            _ctx.SaveChanges();
+
+            return user;
+        }
     }
-
-    public List<User> GetAll()
-    {
-      return this._ctx.Users.ToList<User>();
-    }
-
-    public User Create(CreateUserDto payload)
-    {
-      User user = User.Create(payload.Email, payload.Nickname);
-
-      _ctx.Users.Add(user);
-      _ctx.SaveChanges();
-
-      return user;
-    }
-  }
 }

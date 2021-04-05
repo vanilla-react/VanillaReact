@@ -1,11 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>45de27fa-a800-4a1e-ba7d-3bfdb9fd1cd6</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="*"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="*"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="*"/>
+    <PackageReference Include="AspNet.Security.OAuth.GitHub" Version="5.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="*" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="*" />
   </ItemGroup>
 </Project>
